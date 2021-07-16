@@ -1,0 +1,15 @@
+@import 'fonts';
+
+$application-background-color: #161d31;
+
+* {
+    box-sizing: border-box;
+    font-family: 'OpenSans-regular';
+    position: relative;
+    font-weight: normal;
+}
+body {
+    // background-color: $application-background-color;
+    height: 100%;
+    margin: 0;
+}

@@ -1,0 +1,51 @@
+$standard-padding: 10px;
+:host {
+    flex: 1 1 auto;
+    height: 100vh;
+}
+.grid {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.login-form {
+    width: 400px;
+    padding: $standard-padding;
+    
+    .text-danger {
+        padding: 5px;
+        font-family: 'OpenSans-Regular';
+        color: #dc3545;
+    }
+    input {
+        width: 100%;
+        padding: 12px 20px;
+        margin-bottom: 5px;
+        font-family: 'OpenSans-light';
+        font-size: 15px;
+        border: 1px solid #CFCFCF;
+        outline: 0;
+
+        &.is-invalid {
+            border-color: #dc3545;
+
+        }
+    }
+
+    button {
+        padding: 14px 20px;
+        width: 100%;
+        font-size: 15px;
+        background-color: #7367f0;
+        border: 1px solid #7367f0;
+        color: white;
+
+        &:focus {
+            border: 1px solid #7367f0;
+        }
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

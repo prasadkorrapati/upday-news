@@ -1,0 +1,19 @@
+<div class="grid">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submit()">
+        <div class="text-danger"
+            *ngIf="(loginForm.get('userName').invalid && loginForm.get('userName').touched) || loginForm.get('userName').dirty">
+            <label class="text-danger" *ngIf="loginForm.get('userName').errors?.required">User Name is required</label>
+        </div>
+        <input type="text" formControlName="userName" placeholder="User Name (required)"
+            [class.is-invalid]="loginForm.get('userName').invalid && loginForm.get('userName').touched"><br>
+        <div class="text-danger"
+            *ngIf="(loginForm.get('email').invalid && loginForm.get('email').touched) || loginForm.get('email').dirty">
+            <label class="text-danger" *ngIf="loginForm.get('email').errors?.required">Email address is required</label>
+            <label class="text-danger" *ngIf="loginForm.get('email').errors?.email">Email address is invalid</label>
+        </div>
+        <input type="email" formControlName="email"
+            [class.is-invalid]="loginForm.get('email').invalid && loginForm.get('email').touched"
+            placeholder="Email (required)"><br>
+        <button>Login</button>
+    </form>
+</div>
