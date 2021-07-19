@@ -9,7 +9,11 @@ $application-background-color: #161d31;
     font-weight: normal;
 }
 body {
-    // background-color: $application-background-color;
     height: 100%;
     margin: 0;
+}
+
+.btn.btn-xs {
+    padding: .20rem .3rem;
+    font-size: .75rem;
 }

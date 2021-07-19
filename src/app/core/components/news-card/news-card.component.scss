@@ -1,0 +1,38 @@
+:host {
+
+    margin-bottom: 10px;
+}
+.actions {
+    float: right;
+    button {
+        margin-right: 5px;
+        &:last-child {
+            margin-right: 0;
+        }
+
+        .iconify {
+            margin-right: 5px;
+        }
+    }
+
+    .action-wrapper {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+.card {
+    margin-bottom: 10px;
+
+    .card-header {
+        background-color: #e3f2fd;
+    }
+    .title-wrapper {
+        display: inline-block;
+        // h6 {
+        //     margin-bottom: 0;
+        // }
+    }
+}

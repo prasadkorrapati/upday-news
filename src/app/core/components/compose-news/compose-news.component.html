@@ -1,0 +1,37 @@
+<form [formGroup]="formGroup">
+  <div class="form-group row mb-3">
+    <label for="title" class="col-sm-4 col-form-label">Title</label>
+    <div class="col-sm-8">
+      <div class="text-danger"
+        *ngIf="(formGroup.get('title').invalid && formGroup.get('title').touched) || formGroup.get('title').dirty">
+        <label class="text-danger" *ngIf="formGroup.get('title').errors?.required">Title is required</label>
+      </div>
+      <input type="text" class="form-control" id="title" formControlName="title" placeholder="Title (required)">
+    </div>
+  </div>
+  <div class="form-group row mb-3">
+    <label for="description" class="col-sm-4 col-form-label">Description</label>
+    <div class="col-sm-8">
+      <div class="text-danger"
+        *ngIf="(formGroup.get('description').invalid && formGroup.get('description').touched) || formGroup.get('description').dirty">
+        <label class="text-danger" *ngIf="formGroup.get('description').errors?.required">Description is required</label>
+      </div>
+      <textarea class="form-control" formControlName="description" id="description"
+        placeholder="Description (required)"></textarea>
+    </div>
+  </div>
+  <div class="form-group row mb-3">
+    <label for="imageURL" class="col-sm-4 col-form-label">Image URL</label>
+    <div class="col-sm-8">
+      <div class="text-danger"
+        *ngIf="(formGroup.get('imageURL').invalid && formGroup.get('imageURL').touched) || formGroup.get('imageURL').dirty">
+        <label class="text-danger" *ngIf="formGroup.get('imageURL').errors?.required">Image URL is required</label>
+      </div>
+      <input type="text" class="form-control" formControlName="imageURL" id="imageURL"
+        placeholder="Image URL (required)">
+    </div>
+  </div>
+  <button class="btn btn-outline-secondary float-start" (click)="cancel()">Cancel</button>
+  <button class="btn btn-outline-success float-end" [disabled]="!formGroup.valid"
+    (click)="createNews()">Submit</button>
+</form>

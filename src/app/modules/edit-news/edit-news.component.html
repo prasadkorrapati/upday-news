@@ -1,0 +1,3 @@
+<ng-container *ngIf="editNewsForm">
+    <app-compose-news (back) ="back()" (save)="save($event)" [formGroup] = "editNewsForm"></app-compose-news>
+</ng-container>

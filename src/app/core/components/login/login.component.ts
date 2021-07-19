@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     }
     console.log('invalid  ', this.loginForm.value)
     this.userContextService.set(this.loginForm.value);
-    this.router.navigate(['/home']);
+    this.router.navigate(['/boards']);
   }
 
 }

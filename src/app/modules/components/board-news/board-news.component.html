@@ -1,0 +1,28 @@
+<div *ngIf="boardId ">
+    <button class="btn btn-xs btn-outline-success float-end" [routerLink]="['add']">
+        <span class="iconify" data-icon="mdi:plus" data-inline="false"></span>
+        <span class="icon is-small"></span>Add News
+    </button>
+</div>
+<div class="news" *ngIf="boardNews">
+    <h6 class="inline-block">Drafts</h6>
+    <span *ngIf="!boardNews.drafts.length"> No Drafts</span>
+    <ng-container *ngFor="let news of boardNews.drafts">
+        <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
+    </ng-container>
+    <h6 class="bold">Archives</h6>
+    <span *ngIf="!boardNews.archives.length"> No Archives</span>
+    <ng-container *ngFor="let news of boardNews.archives">
+        <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
+    </ng-container>
+    <h6>Published</h6>
+    <span *ngIf="!boardNews.published.length"> No Published News</span>
+    <ng-container *ngFor="let news of boardNews.published">
+        <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
+    </ng-container>
+</div>
+
+<div class="alert alert-danger mt-3" role="alert" *ngIf="!boardNews">
+    No news to Show
+</div>
+<router-outlet></router-outlet>
