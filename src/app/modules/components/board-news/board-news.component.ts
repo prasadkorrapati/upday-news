@@ -33,4 +33,8 @@ export class BoardNewsComponent implements OnInit {
     console.log('board news destroyed');
   }
 
+  toggleAccordion($event) {
+    console.log('element  ', $event);
+  }
+
 }

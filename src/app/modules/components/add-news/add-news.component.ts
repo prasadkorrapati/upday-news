@@ -30,10 +30,9 @@ export class AddNewsComponent implements OnInit {
     });
   }
 
-  save(news) {
-    console.log('add  news   ', news);
+  save(news: News) {
+    news.createdAt = new Date().toISOString();
     this.apiService.createNews(news).subscribe ( (news: News) => {
-        console.log('newss   ', news);
         this.router.navigate([`/boards/${this.boardId}`]);
       }, (error) => {
         // TODO: Show the error message 

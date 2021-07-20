@@ -1,28 +1,91 @@
-<div *ngIf="boardId ">
-    <button class="btn btn-xs btn-outline-success float-end" [routerLink]="['add']">
-        <span class="iconify" data-icon="mdi:plus" data-inline="false"></span>
-        <span class="icon is-small"></span>Add News
-    </button>
-</div>
+<button class="btn btn-xs btn-outline-success float-end" [routerLink]="['add']">
+    <span class="iconify" data-icon="mdi:plus" data-inline="false"></span>
+    Add News
+</button>
 <div class="news" *ngIf="boardNews">
-    <h6 class="inline-block">Drafts</h6>
-    <span *ngIf="!boardNews.drafts.length"> No Drafts</span>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne" (click)="toggleAccordion($event)">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Drafts
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <span *ngIf="!boardNews.drafts.length" class="alert alert-info mt-3 no-News"> No Drafts</span>
+              <ng-container *ngFor="let news of boardNews.drafts">
+                  <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Published
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <span *ngIf="!boardNews.published.length" class="alert alert-info mt-3 no-News"> No Published News</span>
+              <ng-container *ngFor="let news of boardNews.published">
+                  <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Archives
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <span *ngIf="!boardNews.archives.length" class="alert alert-info mt-3 no-News"> No Archives</span>
+              <ng-container *ngFor="let news of boardNews.archives">
+                  <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- <div class="card">
+        <div class="card-header text-center">Drafts</div>
+        <div class="card-body">
+            <span *ngIf="!boardNews.drafts.length" class="alert alert-info mt-3 no-News"> No Drafts</span>
+            <ng-container *ngFor="let news of boardNews.drafts">
+                <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
+            </ng-container>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header text-center">Drafts</div>
+        <div class="card-body">
+            <span *ngIf="!boardNews.archives.length" class="alert alert-info mt-3 no-News"> No Archives</span>
+            <ng-container *ngFor="let news of boardNews.archives">
+                <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
+            </ng-container>
+        </div>
+    </div> -->
+    <!-- <h5 class="inline-block">Drafts</h5>
+    <span *ngIf="!boardNews.drafts.length" class="alert alert-info mt-3 no-News"> No Drafts</span>
     <ng-container *ngFor="let news of boardNews.drafts">
         <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
-    </ng-container>
-    <h6 class="bold">Archives</h6>
-    <span *ngIf="!boardNews.archives.length"> No Archives</span>
+    </ng-container> -->
+    <!-- <h5 class="bold">Archives</h5>
+    <span *ngIf="!boardNews.archives.length" class="alert alert-info mt-3 no-News"> No Archives</span>
     <ng-container *ngFor="let news of boardNews.archives">
         <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
-    </ng-container>
-    <h6>Published</h6>
-    <span *ngIf="!boardNews.published.length"> No Published News</span>
+    </ng-container> -->
+    <!-- <h5>Published</h5>
+    <span *ngIf="!boardNews.published.length" class="alert alert-info mt-3 no-News"> No Published News</span>
     <ng-container *ngFor="let news of boardNews.published">
         <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
-    </ng-container>
+    </ng-container> -->
 </div>
 
-<div class="alert alert-danger mt-3" role="alert" *ngIf="!boardNews">
+<div class="alert alert-info mt-3 no-News" role="alert"  *ngIf="!boardNews">
     No news to Show
 </div>
 <router-outlet></router-outlet>
