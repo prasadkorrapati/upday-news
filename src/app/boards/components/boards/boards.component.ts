@@ -19,6 +19,7 @@ export class BoardsComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getBoards().subscribe( (boards: Board[] ) => {
       this.boards = boards;
+      console.log('first child  ', this.activatedRoute.snapshot);
       if (this.activatedRoute.snapshot.firstChild) {
         const boardId = this.activatedRoute.snapshot.firstChild.params['boardId'];
         this.selectedBord = boards.find( (board) => board.id === boardId);

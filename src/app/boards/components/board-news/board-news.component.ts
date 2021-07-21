@@ -33,6 +33,16 @@ export class BoardNewsComponent implements OnInit {
     console.log('board news destroyed');
   }
 
+  refresh() {
+    this.apiService.getBoardNews(this.boardId).subscribe( (boardNews: BoardNews) => {
+      this.boardNews = boardNews;
+      console.log('board news  ', this.boardNews);
+    }, (error) => {
+      console.log('error  ', error);
+      // TODO: Need to show error Message, when no data
+    });
+  }
+
   toggleAccordion($event) {
     console.log('element  ', $event);
   }

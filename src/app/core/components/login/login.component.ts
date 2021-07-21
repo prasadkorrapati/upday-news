@@ -16,10 +16,14 @@ export class LoginComponent implements OnInit {
     private router: Router) { }
   
   ngOnInit(): void {
-     this.loginForm = this.fb.group( {
-      userName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
-    });
+    if(localStorage.getItem('userDetails')) {
+      this.router.navigate(['/boards']);
+    } {
+      this.loginForm = this.fb.group( {
+       userName: ['', Validators.required],
+       email: ['', [Validators.required, Validators.email]]
+     });
+    }
 
   }
 

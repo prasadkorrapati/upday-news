@@ -1,7 +1,7 @@
 :host {
-
     margin-bottom: 10px;
 }
+
 .actions {
     float: right;
     button {
@@ -25,14 +25,8 @@
 
 .card {
     margin-bottom: 10px;
-
-    .card-header {
-        background-color: #e3f2fd;
-    }
-    .title-wrapper {
-        display: inline-block;
-        // h6 {
-        //     margin-bottom: 0;
-        // }
+    .card-body {
+        font-size: 13px;
+        font-family: "OpenSans-light";
     }
 }
