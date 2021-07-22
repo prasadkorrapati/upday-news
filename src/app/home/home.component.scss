@@ -1,0 +1,21 @@
+@import './../../fonts';
+
+.toolbar {
+    background-color: $forground-color;
+    border-radius: $standard-border-radius;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .toolbar-brand {
+        font-family: $font-semibold;
+    }
+
+    .user-details {
+        font-size: 12px;
+        font-family: $font-semibold;
+    }
+}
+

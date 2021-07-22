@@ -1,3 +1,4 @@
+@import './../../../../fonts';
 :host {
     display: inline-block;
     margin-top: 20px;
@@ -9,11 +10,31 @@ h6 {
     margin: 10px 0;
 }
 
+.btn-add {
+    background-color: rgba(40, 199, 111, 0.12);
+    .fa {
+        margin-right: 5px;
+        color: #28c76f;
+    }
+    span {
+        color: #28c76f;
+    }
+    &:hover {
+        span {
+            color: white !important;
+        }
+
+        .fa {
+            color: white !important;
+        }
+    }
+}
 .news {
     display: inline-block;
 }
 
 .no-News {
+    background-color: $forground-color;
     display: inline-block;
     width: 100%;
 }

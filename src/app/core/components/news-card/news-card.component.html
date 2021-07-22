@@ -1,31 +1,22 @@
-<div class="card " >
-    <div class="card-header border-bottom">
-        <div class="row">
-            <div class="card-title col-xs-12 col-sm-8" >{{news.title}}</div>
-            <div class="actions  col-xs-12 col-sm-4">
-                <div class="action-wrapper">
-                    <div class="buttons">
-
-                        <button type="button" class="btn btn-xs btn-outline-primary" (click)="gotoEditForm()" *ngIf="news.status !== 'archived'">
-                            <span class="iconify" data-icon="fe:edit" data-inline="false"></span>
-                            <span class="d-none d-lg-inline-block">Edit</span>
-                        </button>
-                        <button type="button" class="btn btn-xs btn-outline-success" (click)="PublishNews()" *ngIf="(news.status !== 'published') && (news.status !== 'archived')">
-                            <span class="iconify" data-icon="mdi:arrow-top-right" data-inline="false"></span>
-                            <span class="d-none d-lg-inline-block">Publish</span>
-                        </button>
-                        <button type="button" class="btn btn-xs btn-outline-danger" (click)="archiveNews()" *ngIf="news.status !== 'archived'">
-                            <span class="iconify" data-icon="bx:bx-archive-in" data-inline="false"></span>
-                            <span class="d-none d-lg-inline-block">Archive</span>
-                        </button>
-                        <button type="button" class="btn btn-xs btn-outline-danger" (click)="deleteNews()">
-                            <span class="iconify" data-icon="mdi:trash-can-outline" data-inline="false"></span>
-                            <span class="d-none d-lg-inline-block">Delete</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+<div class="news-card">
+    <div class="news-card-header">
+        <div class="news-card-title ">{{news.title}}</div>
+        <div class="actions ">
+            <button class="btn btn-xs edit-btn" (click)="gotoEditForm()" *ngIf="news.status !== 'archived'">
+                <span class=" d-lg-inline-block">Edit</span>
+            </button>
+            <button class="btn btn-xs publish-btn" (click)="PublishNews()"
+                *ngIf="(news.status !== 'published') && (news.status !== 'archived')">
+                <span class=" d-lg-inline-block text-success">Publish</span>
+            </button>
+            <button class="btn btn-xs archive-btn" (click)="archiveNews()" *ngIf="news.status !== 'archived'">
+                <span class=" d-lg-inline-block text-danger">Archive</span>
+            </button>
+            <button class="btn btn-xs delete-btn" (click)="deleteNews()">
+                <span class=" d-lg-inline-block text-danger">
+                    Delete</span>
+            </button>
         </div>
     </div>
-    <div class="card-body">{{news.description}}</div>
+    <div class="news-card-body">{{news.description}}</div>
 </div>

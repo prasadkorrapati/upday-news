@@ -1,4 +1,4 @@
-$standard-padding: 10px;
+@import './../../../../fonts';
 :host {
     flex: 1 1 auto;
     height: 100vh;
@@ -11,21 +11,23 @@ $standard-padding: 10px;
 
 .login-form {
     width: 400px;
-    padding: $standard-padding;
+    padding: 10px;
     
     .text-danger {
         padding: 5px;
         font-family: 'OpenSans-Regular';
-        color: #dc3545;
+        color: #ea5455;
     }
     input {
+        border-radius: $standard-border-radius;
         width: 100%;
-        padding: 12px 20px;
+        padding: 10px;
         margin-bottom: 5px;
-        font-family: 'OpenSans-light';
         font-size: 15px;
+        font-family: 'OpenSans-regular';
         border: 1px solid #CFCFCF;
         outline: 0;
+        color: black;
 
         &.is-invalid {
             border-color: #dc3545;
@@ -34,13 +36,14 @@ $standard-padding: 10px;
     }
 
     button {
-        padding: 14px 20px;
+        font-family: "OpenSans-semibold";
+        padding: 10px;
         width: 100%;
+        border-radius: $standard-border-radius;
         font-size: 15px;
         background-color: #7367f0;
         border: 1px solid #7367f0;
         color: white;
-
         &:focus {
             border: 1px solid #7367f0;
         }

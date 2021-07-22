@@ -1,7 +1,7 @@
 <div class="mt-3">
     <div class="boards btn-group">
         <ng-container *ngFor="let board of boards">
-            <button (click)="selectBoard(board)" class="btn btn-outline-primary"
+            <button (click)="selectBoard(board)" class="btn btn-outline-secondary"
                 [ngClass]="{'active': selectedBord &&(board.id === selectedBord.id)}">
                 {{board.name}}
             </button>

@@ -1,32 +1,85 @@
+@import './../../../../fonts';
 :host {
     margin-bottom: 10px;
 }
 
-.actions {
-    float: right;
-    button {
-        margin-right: 5px;
-        &:last-child {
-            margin-right: 0;
-        }
+.news-card {
+    background-color: $forground-color;
+    border-radius: $standard-border-radius;
+    margin-bottom: 10px;
+    padding: $standard-padding;
 
-        .iconify, i {
+    .news-card-header {
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    .news-card-title {
+        display: inline-block;
+        font-size: $heading-font-size;
+        font-family: "OpenSans-semibold";
+    }
+    .actions {
+        display: inline-block;
+        button { 
+
+    
             margin-right: 5px;
+            .fa {
+                margin-right: 5px;
+            }
+            span {
+                font-family: "OpenSans-semibold";
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+            
+            &.edit-btn {
+                background-color: rgb(255,255,255,.12);
+                span {
+                    color: #b2c0c3;
+                }
+            }
+        
+            &.publish-btn {
+                background-color: rgba(40, 199, 111, 0.12);
+                span {
+                    color: #28c76f;
+                }
+            } 
+        
+            &.delete-btn, &.archive-btn {
+                background-color: rgba(234, 84, 85, 0.12);
+                span {
+                    color: #ea5455;
+        
+                }
+            }
+            &:hover {
+                span {
+                    color: white !important;
+                }
+            }
         }
     }
-
-    .action-wrapper {
-        display: flex;
-        height: 100%;
-        align-items: center;
-        justify-content: flex-end;
+    .news-card-body {
+        font-size: 13px;
+        font-family: "OpenSans-light";
     }
 }
 
-.card {
-    margin-bottom: 10px;
-    .card-body {
-        font-size: 13px;
-        font-family: "OpenSans-light";
+@media (max-width: 992px) {
+    .news-card {
+        .news-card-header {
+            display: block;
+
+            .news-card-title, .actions {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
     }
 }

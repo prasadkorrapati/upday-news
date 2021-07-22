@@ -1,3 +1,26 @@
+@import './../../../../fonts';
 form {
     padding: 20px;
+}
+.validation-msg {
+    color: #ea5455;
+}
+.form-control {
+    border-radius: $standard-border-radius;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-family: 'OpenSans-regular';
+    border: 1px solid #CFCFCF;
+    outline: 0;
+    color: black;
+
+    &.ng-invalid.ng-dirty.ng-touched {
+        border-color: #ea5455;        
+    }
+    
+    &.ng-invalid.ng-dirty.ng-touched:focus {
+        box-shadow: inset 0 1px 1px #ea5455, 0 0 1px #ea5455;
+    }
 }

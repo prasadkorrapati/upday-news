@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if(localStorage.getItem('userDetails')) {
       this.router.navigate(['/boards']);
-    } {
+      this.userContextService.set(JSON.parse(localStorage.getItem('userDetails')));
+    } else {
       this.loginForm = this.fb.group( {
        userName: ['', Validators.required],
        email: ['', [Validators.required, Validators.email]]
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
     }
     console.log('invalid  ', this.loginForm.value)
     this.userContextService.set(this.loginForm.value);
+    localStorage.setItem('userDetails', JSON.stringify(this.loginForm.value));
     this.router.navigate(['/boards']);
   }
 
