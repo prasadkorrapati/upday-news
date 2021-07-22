@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { UserContextService } from './core/services/user-context.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

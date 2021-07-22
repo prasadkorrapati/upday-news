@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { UserDetails } from 'src/app/types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserContextService {
-  private loggedInUser;
-  private  subject: Subject<any> = new Subject();;
+  private  subject: Subject<any> = new Subject();
+  constructor() { }
 
   public onUserLoggedin(): Observable<any> {
     return this.subject.asObservable();
   }
-  constructor() { }
-  set(loggedInUser) {
-    this.loggedInUser = loggedInUser;
-    this.subject.next(loggedInUser);
+
+  set(loggedInUser): void {
+    localStorage.setItem('userDetails', JSON.stringify(loggedInUser));
+    this.subject.next(this.get());
   }
-  get() {
-    return this.loggedInUser;
+
+  get(): UserDetails {
+    return JSON.parse(localStorage.getItem('userDetails'));
   }
 }

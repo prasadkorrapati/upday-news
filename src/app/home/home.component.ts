@@ -1,27 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UserContextService } from '../core/services/user-context.service';
+import { UserDetails } from '../types';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-
-  
-  public loggedInUserDetails;
-  constructor(private userContextService: UserContextService){}
+export class HomeComponent implements OnInit, OnDestroy {
+  public loggedInUserDetails: UserDetails;
   private subscription: Subscription;
-  ngOnInit() {
-    this.loggedInUserDetails = JSON.parse(localStorage.getItem('userDetails'));
-
+  constructor(private userContextService: UserContextService){}
+  ngOnInit(): void {
+    this.loggedInUserDetails = this.userContextService.get();
     this.subscription = this.userContextService.onUserLoggedin().subscribe( (loggedInUserDetails) => {
       this.loggedInUserDetails = loggedInUserDetails;
-    })
+    });
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

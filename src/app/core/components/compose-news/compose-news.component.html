@@ -1,6 +1,6 @@
 <form [formGroup]="formGroup">
   <div class="form-group row mb-3">
-    <label for="title" class="col-sm-4 col-form-label">Title</label>
+    <label for="title" class="col-sm-4 col-form-label">Title<span class="mandatory">*</span></label>
     <div class="col-sm-8">
       <div 
         *ngIf="(formGroup.get('title').invalid && formGroup.get('title').touched) || formGroup.get('title').dirty">
@@ -10,7 +10,9 @@
     </div>
   </div>
   <div class="form-group row mb-3">
-    <label for="description" class="col-sm-4 col-form-label">Description</label>
+    <label for="description" class="col-sm-4 col-form-label">Description 
+      <span class="mandatory">*</span>
+    </label>
     <div class="col-sm-8">
       <div *ngIf="(formGroup.get('description').invalid && formGroup.get('description').touched) || formGroup.get('description').dirty">
         <label class="validation-msg" *ngIf="formGroup.get('description').errors?.required">Description is required</label>
@@ -20,7 +22,9 @@
     </div>
   </div>
   <div class="form-group row mb-3">
-    <label for="imageURL" class="col-sm-4 col-form-label">Image URL</label>
+    <label for="imageURL" class="col-sm-4 col-form-label">Image URL
+      <span class="mandatory">*</span>
+    </label>
     <div class="col-sm-8">
       <div *ngIf="(formGroup.get('imageURL').invalid && formGroup.get('imageURL').touched) || formGroup.get('imageURL').dirty">
         <label class="validation-msg" *ngIf="formGroup.get('imageURL').errors?.required">Image URL is required</label>
@@ -30,7 +34,7 @@
         placeholder="Image URL (required)">
     </div>
   </div>
-  <button class="btn btn-xs btn-outline-secondary float-start" (click)="cancel()">Cancel</button>
-  <button class="btn btn-xs btn-outline-success float-end" [disabled]="!formGroup.valid"
+  <button class="btn btn-xs btn-edit float-start" (click)="cancel()">Cancel</button>
+  <button class="btn btn-xs btn-add float-end" [disabled]="!formGroup.valid"
     (click)="createNews()">Submit</button>
 </form>

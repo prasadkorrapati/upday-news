@@ -1,3 +1,4 @@
+<app-error-msg  *ngIf="errorMsg" [errorMsg]="errorMsg"></app-error-msg>
 <ng-container *ngIf="addNewsForm">
     <app-compose-news (back) ="back()" (save)="save($event)" [formGroup] = "addNewsForm"></app-compose-news>
 </ng-container>

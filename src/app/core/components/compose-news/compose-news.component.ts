@@ -1,28 +1,22 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ApiService } from '../../services/api.service';
-import { News } from '../../types/types';
+import { News } from '../../../types';
 
 @Component({
   selector: 'app-compose-news',
   templateUrl: './compose-news.component.html',
   styleUrls: ['./compose-news.component.scss']
 })
-export class ComposeNewsComponent implements OnInit {
+export class ComposeNewsComponent {
   @Input() formGroup: FormGroup;
-  @Output() save:EventEmitter<News> =new EventEmitter<News>();
-  @Output() back:EventEmitter<void> =new EventEmitter<void>();
-  constructor(private router: Router) { }
+  @Output() save: EventEmitter<News> = new EventEmitter<News>();
+  @Output() back: EventEmitter<void> = new EventEmitter<void>();
 
-  ngOnInit(): void { }
-
-  createNews() {
+  createNews(): void {
     this.save.emit(this.formGroup.value);
   }
- 
-  cancel() {
+
+  cancel(): void {
     this.back.emit();
   }
-
 }

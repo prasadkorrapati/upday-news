@@ -12,19 +12,12 @@ h6 {
 
 .btn-add {
     background-color: rgba(40, 199, 111, 0.12);
-    .fa {
-        margin-right: 5px;
-        color: #28c76f;
-    }
+
     span {
-        color: #28c76f;
+        color: $font-green;
     }
     &:hover {
         span {
-            color: white !important;
-        }
-
-        .fa {
             color: white !important;
         }
     }
@@ -34,7 +27,13 @@ h6 {
 }
 
 .no-News {
-    background-color: $forground-color;
+    display: inline-block;
+    width: 100%;
+    font-family: "OpenSans-regular";
+    font-size: 15px;
+}
+app-error-msg {
+    margin-top: 10px;
     display: inline-block;
     width: 100%;
 }

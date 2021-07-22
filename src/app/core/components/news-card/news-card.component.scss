@@ -47,14 +47,14 @@
             &.publish-btn {
                 background-color: rgba(40, 199, 111, 0.12);
                 span {
-                    color: #28c76f;
+                    color: $font-green;
                 }
             } 
         
             &.delete-btn, &.archive-btn {
                 background-color: rgba(234, 84, 85, 0.12);
                 span {
-                    color: #ea5455;
+                    color: $font-red !important;
         
                 }
             }

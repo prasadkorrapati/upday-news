@@ -1,7 +1,10 @@
 <div class='container main-content'>
     <div class="toolbar">
         <div class="toolbar-brand">Upday News Portal </div>
-        <div class="user-details" >{{loggedInUserDetails ? loggedInUserDetails.userName : ''}}</div>
+        <div class="user-details" >
+            <p>{{loggedInUserDetails ? loggedInUserDetails.userName : ''}}</p>
+            <p>{{loggedInUserDetails ? loggedInUserDetails.email : ''}}</p>
+        </div>
     </div>
     <router-outlet></router-outlet>
 </div>

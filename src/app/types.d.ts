@@ -3,10 +3,11 @@ export interface Board {
     name: string;
 }
 
+// eslint-disable-next-line no-shadow
 export enum NewsStatus {
-    Draft = 'draft',
-    Published = 'published',
-    Archive = 'archived'
+    draft = 'draft',
+    published = 'published',
+    archive = 'archived'
 }
 
 export interface News {
@@ -24,4 +25,9 @@ export interface BoardNews {
     drafts: News[];
     published: News[];
     archives: News[];
+}
+
+export interface UserDetails {
+    userName: string;
+    email: string;
 }

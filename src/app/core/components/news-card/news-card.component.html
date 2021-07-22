@@ -5,7 +5,7 @@
             <button class="btn btn-xs edit-btn" (click)="gotoEditForm()" *ngIf="news.status !== 'archived'">
                 <span class=" d-lg-inline-block">Edit</span>
             </button>
-            <button class="btn btn-xs publish-btn" (click)="PublishNews()"
+            <button class="btn btn-xs publish-btn" (click)="publishNews()"
                 *ngIf="(news.status !== 'published') && (news.status !== 'archived')">
                 <span class=" d-lg-inline-block text-success">Publish</span>
             </button>

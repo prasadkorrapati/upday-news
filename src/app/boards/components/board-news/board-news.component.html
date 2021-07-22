@@ -1,27 +1,25 @@
 <button class="btn btn-xs float-end btn-add" routerLink='add'>
-    <i class="fa fa-plus" aria-hidden="true"></i>
     <span>Add News</span>
 </button>
+<app-error-msg  *ngIf="errorMsg" [errorMsg]="errorMsg"></app-error-msg>
 <div class="news" *ngIf="boardNews">
-    <h6 class="text-primary text-center">Drafts ({{boardNews.drafts.length}})</h6>
-    <span *ngIf="!boardNews.drafts.length" class="alert alert-info mt-3 no-News"> No Drafts</span>
+    <h6 class="text-primary text-center">Drafts</h6>
+    <span *ngIf="!boardNews.drafts.length" class="mt-3 no-News"> No Drafts</span>
     <ng-container *ngFor="let news of boardNews.drafts">
         <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
     </ng-container>
-    <h6 class="text-success text-center">Published ({{boardNews.published.length}})</h6>
-    <span *ngIf="!boardNews.published.length" class="alert alert-info mt-3 no-News"> No Published News</span>
+    <h6 class="text-success text-center">Published</h6>
+    <span *ngIf="!boardNews.published.length" class="mt-3 no-News"> No Published News</span>
     <ng-container *ngFor="let news of boardNews.published">
         <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
     </ng-container>
-    <h6 class="text-danger text-center">Archives ({{boardNews.archives.length}})</h6>
-    <span *ngIf="!boardNews.archives.length" class="alert alert-info mt-3 no-News"> No Archives</span>
+    <h6 class="text-danger text-center">Archives</h6>
+    <span *ngIf="!boardNews.archives.length" class="mt-3 no-News"> No Archives</span>
     <ng-container *ngFor="let news of boardNews.archives">
         <app-news-card (refresh)="refresh()" [news]="news"></app-news-card>
     </ng-container>
     
 </div>
 
-<div class="alert mt-3 no-News" role="alert"  *ngIf="!boardNews">
-    No news to Show
-</div>
+<div class="mt-3 no-News" role="alert"  *ngIf="!boardNews && !errorMsg">No news to Show</div>
 <router-outlet></router-outlet>

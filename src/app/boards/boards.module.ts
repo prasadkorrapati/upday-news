@@ -27,10 +27,8 @@ const routes: Routes = [
         component: EditNewsComponent
       }
     ]
-  },
-
-
-]
+  }
+];
 @NgModule({
   declarations: [
     BoardsComponent,
@@ -41,7 +39,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     CoreModule,
-    // NewsModule,
     RouterModule.forChild(routes)
   ]
 })
