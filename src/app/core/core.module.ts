@@ -6,13 +6,15 @@ import { NewsCardComponent } from './components/news-card/news-card.component';
 import { ComposeNewsComponent } from './components/compose-news/compose-news.component';
 import { RouterModule } from '@angular/router';
 import { ErrorMsgComponent } from './components/error-msg/error-msg.component';
+import { DummyComponent } from './components/dummy/dummy.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     NewsCardComponent,
     ComposeNewsComponent,
-    ErrorMsgComponent
+    ErrorMsgComponent,
+    DummyComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-@import './../../fonts';
+@import "./../../fonts";
 
 .toolbar {
     background-color: $forground-color;
@@ -11,14 +11,36 @@
     .toolbar-brand {
         font-family: $font-semibold;
     }
+    .right-side {
+        display: flex;
+        flex-direction: row;
 
-    .user-details {
-        font-size: 12px;
-        font-family: $font-semibold;
-        text-align: right;
-        p {
-            margin: 0;
+        .user-details {
+            font-size: 12px;
+            font-family: $font-semibold;
+            text-align: right;
+            display: inline-block;
+            p {
+                margin: 0;
+            }
+        }
+
+        button {
+            margin-left: 10px;
         }
     }
 }
 
+@media (max-width: 768px) {
+    .toolbar {
+        display: block;
+
+        .toolbar-brand {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .right-side {
+            justify-content: space-between;
+        }
+    }
+}

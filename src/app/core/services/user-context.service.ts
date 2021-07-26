@@ -13,7 +13,7 @@ export class UserContextService {
     return this.subject.asObservable();
   }
 
-  set(loggedInUser): void {
+  set(loggedInUser: UserDetails): void {
     localStorage.setItem('userDetails', JSON.stringify(loggedInUser));
     this.subject.next(this.get());
   }

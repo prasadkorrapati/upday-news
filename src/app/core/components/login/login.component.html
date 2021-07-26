@@ -1,4 +1,4 @@
-<div class="grid" *ngIf="loginForm">
+<div class="grid" *ngIf="loginForm" id="loginForm">
     <form class="login-form" [formGroup]="loginForm" (ngSubmit)="submit()">
         <div class="text-danger"
             *ngIf="(loginForm.get('userName').invalid && loginForm.get('userName').touched) || loginForm.get('userName').dirty">

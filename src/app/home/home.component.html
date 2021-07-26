@@ -1,9 +1,20 @@
-<div class='container main-content'>
+<div class="container main-content">
     <div class="toolbar">
-        <div class="toolbar-brand">Upday News Portal </div>
-        <div class="user-details" >
-            <p>{{loggedInUserDetails ? loggedInUserDetails.userName : ''}}</p>
-            <p>{{loggedInUserDetails ? loggedInUserDetails.email : ''}}</p>
+        <div class="toolbar-brand">Upday News Portal</div>
+        <div class="right-side">
+            <div class="user-details">
+                <p>
+                    {{
+                        loggedInUserDetails ? loggedInUserDetails.userName : ""
+                    }}
+                </p>
+                <p>
+                    {{ loggedInUserDetails ? loggedInUserDetails.email : "" }}
+                </p>
+            </div>
+            <button class="btn btn-xs btn-primary logout" (click)="logout()">
+                Logout
+            </button>
         </div>
     </div>
     <router-outlet></router-outlet>
